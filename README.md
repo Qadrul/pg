@@ -1,9 +1,17 @@
-Nama : Qadrul Dzul Dina
-Nim : 231401088
-lab : 2
-Nama Aplikasi : pg
-Sebuah aplikasi quiz pengetahuan umum
-Link Figma : https://www.figma.com/design/orUWikacjucCTUSoEK3znu/Quiz--Community-?node-id=0-1&p=f&t=V6f0jvknKj5OvsNQ-0
-Design Logo : https://www.design.com
-![WhatsApp Image 2025-11-04 at 17 15 39](https://github.com/user-attachments/assets/3fce0e0e-1d8c-4b96-b8e6-5a71ba49805d)
-
+Nama : Qadrul Dzul Dina <br>
+Nim : 231401088 <br>
+lab : 2 <br>
+Nama Aplikasi : pg <br>
+Sebuah aplikasi quiz pengetahuan umum<br>
+Link Figma : https://www.figma.com/design/orUWikacjucCTUSoEK3znu/Quiz--Community-?node-id=0-1&p=f&t=V6f0jvknKj5OvsNQ-0 <br>
+Design Logo : https://www.design.com <br>
+Splash :<br>
+![WhatsApp Image 2025-11-04 at 17 15 41](https://github.com/user-attachments/assets/1bebc418-e367-4c6f-8528-d4d644da6c0d)
+Home screen : <br>
+![WhatsApp Image 2025-11-04 at 17 15 41 (1)](https://github.com/user-attachments/assets/1a8ecbfc-b968-43df-8935-518bd23895b0)
+Quiz screen Correct : <br>
+![WhatsApp Image 2025-11-04 at 17 15 40](https://github.com/user-attachments/assets/aeeca0d0-85b7-4ee5-930f-b18c06f358df)
+Quiz screen Wrong : <br>
+![WhatsApp Image 2025-11-04 at 17 15 39 (1)](https://github.com/user-attachments/assets/d269598c-e63a-4e9b-b1b2-8df17284b19a)
+Final screen : <br>
+![WhatsApp Image 2025-11-04 at 17 15 39](https://github.com/user-attachments/assets/19c04c05-9bbc-4da0-a66b-58bc142810e3)
