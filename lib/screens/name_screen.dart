@@ -21,10 +21,6 @@ class _NameScreenState extends State<NameScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Soal 1/3',
-          style: TextStyle(color: theme.colorScheme.onBackground),
-        ),
         actions: const [ThemeToggleIcon()],
       ),
       body: Padding(
