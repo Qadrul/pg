@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:pg/data/question_data.dart';
 import 'package:confetti/confetti.dart';
+import 'package:pg/data/question_data.dart';
+import 'package:pg/models/question_models.dart';
 
 class QuizProvider extends ChangeNotifier {
   String userName = '';
@@ -8,11 +10,23 @@ class QuizProvider extends ChangeNotifier {
   int score = 0;
   bool answered = false;
   int? selectedIndex;
+  late List<Question> shuffledQuestions;
+
   final ConfettiController confettiController =
       ConfettiController(duration: const Duration(seconds: 1));
 
+  QuizProvider() {
+    _shuffleQuestions();
+  }
+
+  void _shuffleQuestions() {
+    shuffledQuestions = List<Question>.from(questionList)..shuffle(Random());
+  }
+
   void setName(String name) {
     userName = name;
+    _shuffleQuestions(); // acak ulang setiap kali mulai quiz
+    resetQuiz();
     notifyListeners();
   }
 
@@ -21,7 +35,8 @@ class QuizProvider extends ChangeNotifier {
     answered = true;
     selectedIndex = index;
 
-    if (index == questionList[currentQuestionIndex].correctIndex) {
+    // Hitung skor langsung tanpa menunggu confetti
+    if (index == shuffledQuestions[currentQuestionIndex].correctIndex) {
       score++;
       confettiController.play();
     }
@@ -30,7 +45,7 @@ class QuizProvider extends ChangeNotifier {
   }
 
   void nextQuestion() {
-    if (currentQuestionIndex < questionList.length - 1) {
+    if (currentQuestionIndex < shuffledQuestions.length - 1) {
       currentQuestionIndex++;
       answered = false;
       selectedIndex = null;
@@ -38,7 +53,7 @@ class QuizProvider extends ChangeNotifier {
     }
   }
 
-  bool get isLastQuestion => currentQuestionIndex == questionList.length - 1;
+  bool get isLastQuestion => currentQuestionIndex == shuffledQuestions.length - 1;
 
   void resetQuiz() {
     currentQuestionIndex = 0;

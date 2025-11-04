@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pg/widgets/theme_toogle_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:pg/providers/quiz_provider.dart';
 import 'package:pg/data/question_data.dart';
@@ -10,13 +11,18 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final quiz = Provider.of<QuizProvider>(context, listen: false);
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hasil", style: TextStyle(color: Color(0xFF1A2B4F))),
+        title: Text(
+          "Hasil",
+          style: TextStyle(color: theme.colorScheme.onBackground),
+        ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: const [ThemeToggleIcon()],
       ),
       body: Center(
         child: Padding(
@@ -26,13 +32,16 @@ class ResultScreen extends StatelessWidget {
             children: [
               Text(
                 "Terima kasih, ${quiz.userName}!",
-                style: const TextStyle(
-                    fontSize: 20, color: Color(0xFF1A2B4F), fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: theme.colorScheme.onBackground,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               const SizedBox(height: 10),
               Text(
                 "Skor kamu ${quiz.score}/${questionList.length}",
-                style: const TextStyle(color: Color(0xFF6B7BA3)),
+                style: TextStyle(color: theme.colorScheme.secondary),
               ),
               const SizedBox(height: 40),
               ElevatedButton(
@@ -41,8 +50,8 @@ class ResultScreen extends StatelessWidget {
                   context.go('/quiz');
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF2F6DFF),
-                  foregroundColor: Colors.white,
+                  backgroundColor: theme.colorScheme.primary,
+                  foregroundColor: theme.colorScheme.onPrimary,
                   minimumSize: const Size(double.infinity, 48),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -57,9 +66,9 @@ class ResultScreen extends StatelessWidget {
                   context.go('/name');
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: const Color(0xFF2F6DFF),
-                  side: const BorderSide(color: Color(0xFF2F6DFF)),
+                  backgroundColor: theme.colorScheme.surface,
+                  foregroundColor: theme.colorScheme.primary,
+                  side: BorderSide(color: theme.colorScheme.primary),
                   minimumSize: const Size(double.infinity, 48),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

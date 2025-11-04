@@ -33,6 +33,7 @@ dependencies:
   go_router: ^16.2.4
   provider: ^6.1.5+1
   confetti: ^0.8.0
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:

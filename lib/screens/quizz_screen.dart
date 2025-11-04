@@ -1,6 +1,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pg/widgets/theme_toogle_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:pg/data/question_data.dart';
 import 'package:pg/providers/quiz_provider.dart';
@@ -14,14 +15,16 @@ class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final quiz = Provider.of<QuizProvider>(context);
-    final question = questionList[quiz.currentQuestionIndex];
+    final question = quiz.shuffledQuestions[quiz.currentQuestionIndex];
+    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           "Soal ${quiz.currentQuestionIndex + 1}/${questionList.length}",
-          style: const TextStyle(color: Color(0xFF1A2B4F)),
+          style: TextStyle(color: theme.colorScheme.onSurface),
         ),
+        actions: const [ThemeToggleIcon()],
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -46,13 +49,11 @@ class QuizScreen extends StatelessWidget {
               const SizedBox(height: 30),
               if (quiz.answered)
                 Text(
-                  quiz.selectedIndex ==
-                          questionList[quiz.currentQuestionIndex].correctIndex
+                  quiz.selectedIndex == question.correctIndex
                       ? "Correct.."
                       : "Wrong..",
                   style: TextStyle(
-                    color: quiz.selectedIndex ==
-                            questionList[quiz.currentQuestionIndex].correctIndex
+                    color: quiz.selectedIndex == question.correctIndex
                         ? Colors.green
                         : Colors.red,
                     fontSize: 18,
