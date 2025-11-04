@@ -4,7 +4,7 @@ lab : 2 <br>
 Nama Aplikasi : pg <br>
 Sebuah aplikasi quiz pengetahuan umum<br>
 Link Figma : https://www.figma.com/design/orUWikacjucCTUSoEK3znu/Quiz--Community-?node-id=0-1&p=f&t=V6f0jvknKj5OvsNQ-0 <br>
-Design Logo : https://www.design.com <br>
+Credit Logo : https://www.design.com <br>
 Splash :<br>
 ![WhatsApp Image 2025-11-04 at 17 15 41](https://github.com/user-attachments/assets/1bebc418-e367-4c6f-8528-d4d644da6c0d) <br>
 Home screen (Light Mode): <br>
