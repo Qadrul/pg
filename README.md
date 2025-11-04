@@ -1,16 +1,9 @@
-# pg
+Nama : Qadrul Dzul Dina
+Nim : 231401088
+lab : 2
+Nama Aplikasi : pg
+Sebuah aplikasi quiz pengetahuan umum
+Link Figma : https://www.figma.com/design/orUWikacjucCTUSoEK3znu/Quiz--Community-?node-id=0-1&p=f&t=V6f0jvknKj5OvsNQ-0
+Design Logo : https://www.design.com
+![WhatsApp Image 2025-11-04 at 17 15 39](https://github.com/user-attachments/assets/3fce0e0e-1d8c-4b96-b8e6-5a71ba49805d)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
