@@ -6,6 +6,7 @@ class AnswerButton extends StatelessWidget {
   final bool isCorrect;
   final bool isAnswered;
   final VoidCallback onTap;
+  final TextStyle? textStyle; // <-- tambahkan ini
 
   const AnswerButton({
     super.key,
@@ -14,6 +15,7 @@ class AnswerButton extends StatelessWidget {
     required this.isCorrect,
     required this.isAnswered,
     required this.onTap,
+    this.textStyle, // <-- tambahkan ini
   });
 
   @override
@@ -35,7 +37,10 @@ class AnswerButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: Text(text),
+        child: Text(
+          text,
+          style: textStyle ?? const TextStyle(), // <-- pakai style dari screen
+        ),
       ),
     );
   }

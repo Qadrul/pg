@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class NextButton extends StatelessWidget {
   final VoidCallback onPressed;
-  const NextButton({super.key, required this.onPressed});
+  final TextStyle? textStyle; // <-- tambahkan ini
+
+  const NextButton({super.key, required this.onPressed, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,10 @@ class NextButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
         ),
-        child: const Text("Next"),
+        child: Text(
+          "Next",
+          style: textStyle ?? const TextStyle(),
+        ),
       ),
     );
   }

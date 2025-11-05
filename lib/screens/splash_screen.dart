@@ -12,6 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    // // Navigasi otomatis ke halaman input nama setelah 2 detik
     Future.delayed(const Duration(seconds: 2), () {
       context.go('/name');
     });
@@ -22,8 +23,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return const Scaffold(
       body: Center(
         child: Image(
-          image: AssetImage('assets/images/logo.png'),
-          width: 120,
+          image: AssetImage('assets/images/logo.png'), // // Menggunakan aset gambar → mempercantik UI
+          width: 120,                                     // // Ukuran responsif bisa ditingkatkan (misal relative ke lebar layar)
         ),
       ),
     );

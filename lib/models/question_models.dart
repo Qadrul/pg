@@ -1,7 +1,7 @@
 class Question {
-  final String questionText;
-  final List<String> options;
-  final int correctIndex;
+  final String questionText;       // // Menyimpan teks pertanyaan (immutable)
+  final List<String> options;      // // Menyimpan daftar pilihan jawaban
+  final int correctIndex;          // // Menyimpan indeks jawaban yang benar
 
   Question({
     required this.questionText,

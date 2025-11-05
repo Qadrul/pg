@@ -17,7 +17,11 @@ class ResultScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Hasil",
-          style: TextStyle(color: theme.colorScheme.onBackground),
+          style: TextStyle(
+            color: theme.colorScheme.onSurface,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500, // ← font Poppins
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -34,14 +38,19 @@ class ResultScreen extends StatelessWidget {
                 "Terima kasih, ${quiz.userName}!",
                 style: TextStyle(
                   fontSize: 20,
-                  color: theme.colorScheme.onBackground,
-                  fontWeight: FontWeight.w600,
+                  color: theme.colorScheme.onSurface,
+                  fontFamily: 'Poppins', // ← font Poppins
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(height: 10),
               Text(
                 "Skor kamu ${quiz.score}/${questionList.length}",
-                style: TextStyle(color: theme.colorScheme.secondary),
+                style: TextStyle(
+                  color: theme.colorScheme.secondary,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500, // ← font Poppins
+                ),
               ),
               const SizedBox(height: 40),
               ElevatedButton(
@@ -57,7 +66,10 @@ class ResultScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text("Ulangi (${quiz.userName})"),
+                child: Text(
+                  "Ulangi (${quiz.userName})",
+                  style: const TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400,), // ← font Poppins
+                ),
               ),
               const SizedBox(height: 12),
               ElevatedButton(
@@ -74,7 +86,10 @@ class ResultScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: const Text("HOME"),
+                child: const Text(
+                  "HOME",
+                  style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w400,), // ← font Poppins
+                ),
               ),
             ],
           ),

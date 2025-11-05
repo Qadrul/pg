@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  bool _isDarkMode = false;
-  bool get isDarkMode => _isDarkMode;
+  bool _isDarkMode = false;             // // Menyimpan status tema
+  bool get isDarkMode => _isDarkMode;   // // Getter untuk akses status tema
 
   ThemeProvider() {
-    _loadTheme(); // panggil saat inisialisasi
+    _loadTheme();                        // // Ambil tema terakhir saat inisialisasi
   }
 
   /// 🔹 Ubah tema dan simpan ke SharedPreferences
   void toggleTheme() async {
-    _isDarkMode = !_isDarkMode;
-    notifyListeners();
+    _isDarkMode = !_isDarkMode;         // // Toggle antara light/dark
+    notifyListeners();                  // // Update UI saat theme berubah
 
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isDarkMode', _isDarkMode);
+    await prefs.setBool('isDarkMode', _isDarkMode); // // Simpan tema
   }
 
   /// 🔹 Ambil tema terakhir dari SharedPreferences
   void _loadTheme() async {
     final prefs = await SharedPreferences.getInstance();
     _isDarkMode = prefs.getBool('isDarkMode') ?? false;
-    notifyListeners();
+    notifyListeners();                  // // Update UI sesuai tema tersimpan
   }
 
   ThemeData get themeData {

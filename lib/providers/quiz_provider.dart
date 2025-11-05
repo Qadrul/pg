@@ -5,18 +5,18 @@ import 'package:pg/data/question_data.dart';
 import 'package:pg/models/question_models.dart';
 
 class QuizProvider extends ChangeNotifier {
-  String userName = '';
-  int currentQuestionIndex = 0;
-  int score = 0;
-  bool answered = false;
-  int? selectedIndex;
-  late List<Question> shuffledQuestions;
+  String userName = '';                       // // Menyimpan nama pengguna
+  int currentQuestionIndex = 0;               // // Menyimpan indeks pertanyaan saat ini
+  int score = 0;                              // // Menyimpan skor pengguna
+  bool answered = false;                      // // Menandai apakah pertanyaan sudah dijawab
+  int? selectedIndex;                         // // Menyimpan jawaban yang dipilih
+  late List<Question> shuffledQuestions;      // // List pertanyaan acak untuk quiz
 
   final ConfettiController confettiController =
-      ConfettiController(duration: const Duration(seconds: 1));
+      ConfettiController(duration: const Duration(seconds: 1));  // // Controller animasi confetti
 
   QuizProvider() {
-    _shuffleQuestions();
+    _shuffleQuestions();                      // // Acak pertanyaan saat provider dibuat
   }
 
   void _shuffleQuestions() {
@@ -25,23 +25,22 @@ class QuizProvider extends ChangeNotifier {
 
   void setName(String name) {
     userName = name;
-    _shuffleQuestions(); // acak ulang setiap kali mulai quiz
+    _shuffleQuestions();                      // // Acak ulang setiap kali quiz baru
     resetQuiz();
-    notifyListeners();
+    notifyListeners();                        // // Update UI via state management
   }
 
   void answerQuestion(int index) {
-    if (answered) return;
+    if (answered) return;                      // // Mencegah jawaban ganda
     answered = true;
     selectedIndex = index;
 
-    // Hitung skor langsung tanpa menunggu confetti
     if (index == shuffledQuestions[currentQuestionIndex].correctIndex) {
-      score++;
-      confettiController.play();
+      score++;                                 // // Hitung skor
+      confettiController.play();              // // Mainkan animasi confetti
     }
 
-    notifyListeners();
+    notifyListeners();                        // // Update UI
   }
 
   void nextQuestion() {
@@ -65,7 +64,7 @@ class QuizProvider extends ChangeNotifier {
 
   @override
   void dispose() {
-    confettiController.dispose();
+    confettiController.dispose();             // // Bersihkan controller saat provider dibuang
     super.dispose();
   }
 }

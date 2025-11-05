@@ -14,15 +14,19 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final quiz = Provider.of<QuizProvider>(context);
-    final question = quiz.shuffledQuestions[quiz.currentQuestionIndex];
+    final quiz = Provider.of<QuizProvider>(context); // Akses QuizProvider
+    final question = quiz.shuffledQuestions[quiz.currentQuestionIndex]; // Ambil pertanyaan saat ini
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Soal ${quiz.currentQuestionIndex + 1}/${questionList.length}",
-          style: TextStyle(color: theme.colorScheme.onSurface),
+          "Soal ${quiz.currentQuestionIndex + 1}/${questionList.length}", // Indikator progres
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500, // Medium untuk judul
+            color: theme.colorScheme.onSurface,
+          ),
         ),
         actions: const [ThemeToggleIcon()],
         centerTitle: true,
@@ -35,7 +39,13 @@ class QuizScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              QuestionCard(text: question.questionText),
+              QuestionCard(
+                text: question.questionText,
+                textStyle: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400, // Regular untuk pertanyaan
+                ),
+              ),
               const SizedBox(height: 20),
               ...List.generate(question.options.length, (i) {
                 return AnswerButton(
@@ -44,6 +54,10 @@ class QuizScreen extends StatelessWidget {
                   isCorrect: i == question.correctIndex,
                   isAnswered: quiz.answered,
                   onTap: () => quiz.answerQuestion(i),
+                  textStyle: const TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400, // Regular untuk jawaban
+                  ),
                 );
               }),
               const SizedBox(height: 30),
@@ -53,11 +67,12 @@ class QuizScreen extends StatelessWidget {
                       ? "Correct.."
                       : "Wrong..",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500, // Medium untuk feedback
                     color: quiz.selectedIndex == question.correctIndex
                         ? Colors.green
                         : Colors.red,
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               const SizedBox(height: 10),
@@ -69,6 +84,10 @@ class QuizScreen extends StatelessWidget {
                     quiz.nextQuestion();
                   }
                 },
+                textStyle: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w400, // Regular untuk tombol next
+                ),
               ),
             ],
           ),

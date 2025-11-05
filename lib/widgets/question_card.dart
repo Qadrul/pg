@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class QuestionCard extends StatelessWidget {
   final String text;
-  const QuestionCard({super.key, required this.text});
+  final TextStyle? textStyle; // <-- tambahkan ini
+
+  const QuestionCard({super.key, required this.text, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +18,12 @@ class QuestionCard extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Color(0xFF1A2B4F),
-          fontWeight: FontWeight.w600,
-        ),
+        style: textStyle ??
+            const TextStyle(
+              fontSize: 18,
+              color: Color(0xFF1A2B4F),
+              fontWeight: FontWeight.w600,
+            ),
       ),
     );
   }

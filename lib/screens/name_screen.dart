@@ -12,16 +12,16 @@ class NameScreen extends StatefulWidget {
 }
 
 class _NameScreenState extends State<NameScreen> {
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();  // // Controller input nama
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<QuizProvider>(context);
-    final theme = Theme.of(context);
+    final provider = Provider.of<QuizProvider>(context);  // // Mengakses QuizProvider
+    final theme = Theme.of(context);                     // // Mengakses tema (dual theme)
 
     return Scaffold(
       appBar: AppBar(
-        actions: const [ThemeToggleIcon()],
+        actions: const [ThemeToggleIcon()],             // // Tombol toggle tema
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -30,7 +30,9 @@ class _NameScreenState extends State<NameScreen> {
           children: [
             Text(
               "Masukkan Nama Kamu...",
-              style: TextStyle(
+                style: TextStyle(
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w100, // Thin
                 fontSize: 18,
                 color: theme.colorScheme.onBackground,
               ),
@@ -40,7 +42,11 @@ class _NameScreenState extends State<NameScreen> {
               controller: nameController,
               decoration: InputDecoration(
                 hintText: "Nama",
-                hintStyle: TextStyle(color: theme.hintColor),
+                hintStyle: TextStyle(
+                  fontFamily: 'Poppins',                     // ← Tambahkan font Poppins
+                  fontWeight: FontWeight.w100,
+                  color: theme.hintColor,
+                ),
                 filled: true,
                 fillColor: theme.inputDecorationTheme.fillColor ?? theme.cardColor,
                 border: OutlineInputBorder(
@@ -48,13 +54,14 @@ class _NameScreenState extends State<NameScreen> {
                   borderSide: BorderSide.none,
                 ),
               ),
+              style: const TextStyle(fontFamily: 'Poppins'), // ← Tambahkan font Poppins untuk teks input
             ),
             const SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
                 if (nameController.text.isNotEmpty) {
-                  provider.setName(nameController.text);
-                  context.go('/quiz');
+                  provider.setName(nameController.text); // // Simpan nama ke provider
+                  context.go('/quiz');                   // // Navigasi ke halaman quiz
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -65,7 +72,13 @@ class _NameScreenState extends State<NameScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              child: const Text("Next"),
+              child: const Text(
+                "Next",
+                style: TextStyle(
+                  fontFamily: 'Poppins', 
+                  fontWeight: FontWeight.w400,
+                  ),   // ← Tambahkan font Poppins
+              ),
             ),
           ],
         ),

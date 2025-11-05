@@ -7,16 +7,16 @@ class ThemeToggleIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);  // // Akses ThemeProvider
     final isDark = themeProvider.isDarkMode;
 
     return IconButton(
       icon: Icon(
-        isDark ? Icons.wb_incandescent_rounded : Icons.wb_sunny_rounded,
-        color: isDark ? Colors.white : Colors.black,
+        isDark ? Icons.wb_incandescent_rounded : Icons.wb_sunny_rounded, // // Icon berubah sesuai tema
+        color: isDark ? Colors.white : Colors.black,                        // // Warna icon menyesuaikan mode
       ),
       onPressed: () {
-        themeProvider.toggleTheme();
+        themeProvider.toggleTheme(); // // Toggle tema → update state global
       },
     );
   }

@@ -7,10 +7,22 @@ import 'package:pg/screens/splash_screen.dart';
 class AppRouter {
   static final GoRouter router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
-      GoRoute(path: '/name', builder: (context, state) => const NameScreen()),
-      GoRoute(path: '/quiz', builder: (context, state) => const QuizScreen()),
-      GoRoute(path: '/result', builder: (context, state) => const ResultScreen()),
+      GoRoute(
+        path: '/', 
+        builder: (context, state) => const SplashScreen()  // // Halaman splash pertama
+      ),
+      GoRoute(
+        path: '/name', 
+        builder: (context, state) => const NameScreen()    // // Halaman input nama pengguna
+      ),
+      GoRoute(
+        path: '/quiz', 
+        builder: (context, state) => const QuizScreen()    // // Halaman kuis
+      ),
+      GoRoute(
+        path: '/result', 
+        builder: (context, state) => const ResultScreen()  // // Halaman hasil skor
+      ),
     ],
   );
 }
